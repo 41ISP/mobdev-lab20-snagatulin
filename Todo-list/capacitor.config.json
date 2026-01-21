@@ -1,0 +1,5 @@
+{
+  "appId": "com.kitek.todolist",
+  "appName": "todo-list",
+  "webDir": "dist"
+}
