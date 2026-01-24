@@ -11,7 +11,6 @@ function TodoForm({ onAdd }) {
 
     // TODO: Добавьте проверку - если inputValue пустой (или только пробелы), ничего не делаем
     // Используйте метод trim() для удаления пробелов с краёв строки
-    
     onAdd(inputValue)
     setInputValue("")
     // TODO: Вызовите функцию onAdd с текстом задачи

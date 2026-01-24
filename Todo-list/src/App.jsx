@@ -8,6 +8,17 @@ function App() {
   const [todos, setTodos] = useState([])
   const [filter, setFilter] = useState('all')
 
+    useEffect(() => {
+    const loadTodos = async () => {
+      const todos = await getObject("todos")
+      console.log(todos);
+      
+      setTodos(todos || [])
+      console.log(todos)
+    }
+    loadTodos()
+    }, [])
+
   const addTodo = (text) => {
     const newTodo = {
       id: Date.now(), // Простой способ генерации уникального ID
@@ -40,21 +51,14 @@ function App() {
     return todos; // 'all'
   };
 
-useEffect(() => {
-  // Функция для загрузки данных
-  const loadData = async () => {
-    const todos = await getObject("todos")// Ваш код загрузки
-    setTodos(todos || [])
-  };
-  
-  loadData();
-}, []); // Пустой массив зависимостей = выполнится один раз при монтировании
+
 
 useEffect(() => {
   // Функция для сохранения данных
   const saveData = async () => {
-   setObject("todos", todos) // Ваш код сохранения
-  };  
+    setObject("todos", todos)
+    console.log(todos);
+  };
   saveData();
 }, [todos]); // Выполнится каждый раз, когда изменится todos
 
